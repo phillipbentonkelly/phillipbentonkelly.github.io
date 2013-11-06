@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>GOOGLE Translate JS - demo</title>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="GoogleTranslateJS.js"></script>
+
+		<script>
+			var googleTranslateJS = GoogleTranslateJS( 'AIzaSyBH7K0DG_rzqpn85LmGZ5NjFzfZzS-5GvA' );
+
+			$(function(){
+				$('nav a[targetLang]').bind('click', translateText);
+			});
+
+			function translateText(){
+				var thisObj = $(this);
+				var targetObj = $(thisObj.attr('sourceId'));
+				var sourceLang = thisObj.attr('sourceLang');
+				var targetLang = thisObj.attr('targetLang');
+
+				googleTranslateJS.translate( targetObj, targetObj.html(), sourceLang, targetLang, true );
+					$('nav a[targetLang]').attr('sourceLang', targetLang);
+			}
+		</script>
+
+		<style>
+			#transcript{
+				font-family: Tahoma;
+				font-size: 11px;
+				line-height: 16px;
+				border: 1px dotted orange;
+				padding: 5px 5px 5px 5px;
+				margin: 6px 0 0 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Demo</h1>
+
+		<nav>
+			<a href="javascript:;" sourceLang="en" targetLang="en" sourceId="#transcript">English</a>
+			<a href="javascript:;" sourceLang="en" targetLang="es" sourceId="#transcript">Spanish</a>
+			<a href="javascript:;" sourceLang="en" targetLang="fr" sourceId="#transcript">French</a>
+			<a href="javascript:;" sourceLang="en" targetLang="de" sourceId="#transcript">German</a>
+		</nav>
+
+		<div id="transcript">-By consquent, elements of technology are very intressants. It starts with infrastructure everywhere, you know, far virtualizacin gnralisvers deep cloud infrastructure, Htel dfini a registered program. Everywhere infrastructure consquent do enjoy your company - is the basis, the kernel starts. How to build, launch dvelopper Beast infrastructure, utilities estla built as a service platform. By consquent, your socitdie flexibilitde the ralitqui, if required, in turn, pay for them as they go, and really worth it.</div>
+
+	</body>
+</html>
